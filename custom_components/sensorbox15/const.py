@@ -11,5 +11,5 @@ POWER_SENSORS = {
     "l2_power": {"name": "L2 Power", "unit": "W"},
     "l3_power": {"name": "L3 Power", "unit": "W"},
     "total_power": {"name": "Total Power", "unit": "W"},
-    "consumption": {"name": "Hourly Consumption", "unit": "Wh"},
+    "consumption": {"name": "Hourly Consumption", "unit": "kWh"},
 }

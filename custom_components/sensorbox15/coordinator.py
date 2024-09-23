@@ -59,9 +59,9 @@ class SensorboxEnergyCoordinator(DataUpdateCoordinator):
         start_time = end_time.replace(minute=0, second=0, microsecond=0)
 
         try:
-            energy_wh = await calculate_energy_usage(
+            energy_kwh = await calculate_energy_usage(
                 self.hass, total_power_entity_id, start_time, end_time
             )
-            return {"consumption": energy_wh}
+            return {"consumption": energy_kwh}
         except AttributeError:
             raise HomeAssistantError("Recorder component not yet initialized")

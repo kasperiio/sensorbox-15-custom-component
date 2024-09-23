@@ -31,7 +31,7 @@ async def calculate_energy_usage(hass, entity_id, start_time, end_time):
         return 0
 
     states = history[entity_id]
-    energy_wh = 0
+    energy_kwh = 0
     last_state = None
     last_time = None
 
@@ -51,9 +51,9 @@ async def calculate_energy_usage(hass, entity_id, start_time, end_time):
                 current_time - last_time
             ).total_seconds() / 3600  # Convert to hours
             avg_power = (current_power + float(last_state.state)) / 2
-            energy_wh += avg_power * time_diff
+            energy_kwh += (avg_power * time_diff) / 1000  # Convert to kWh
 
         last_state = state
         last_time = current_time
 
-    return energy_wh
+    return energy_kwh
